@@ -18,6 +18,7 @@ load_dotenv(dotenv_path=KEY_PATH)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Define the Flask Blueprint
+
 openAI = Blueprint("openAI", __name__)
 
 # Define functions for extracting text
