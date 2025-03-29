@@ -14,6 +14,7 @@ Starting the frontend server
 
 ```bash
   cd frontend
+  npm install
   ng serve -o
 ```
 
@@ -21,5 +22,8 @@ Starting the backend server
 
 ```bash
   cd backend
-  flask run
+  python -m venv venv # create virtual environment
+  source venv/bin/activate # for windows: venv\Scripts\activate
+  pip install -r requirements.txt # install dependencies
+  flask run # start the server
 ```
