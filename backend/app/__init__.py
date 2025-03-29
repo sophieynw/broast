@@ -85,11 +85,11 @@ def create_app():
     # Register blueprints
     from .views import views
     from .auth import auth
-    from .openai import broastAI
+    from .openai import openAI
 
     app.register_blueprint(views, url_prefix="/")  # Main routes
     app.register_blueprint(auth, url_prefix="/")  # Authentication routes
-    app.register_blueprint(broastAI, url_prefix="/") # BroastOpenAI routes
+    app.register_blueprint(openAI, url_prefix="/") # BroastOpenAI routes
 
     # Flask-Login user loader
     from .models import User

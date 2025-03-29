@@ -18,7 +18,8 @@ load_dotenv(dotenv_path=KEY_PATH)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Define the Flask Blueprint
-broastAI = Blueprint("broastAI", __name__)
+
+openAI = Blueprint("openAI", __name__)
 
 # Define functions for extracting text
 def extract_text_from_docx(file_path):
@@ -39,7 +40,7 @@ def get_text_from_file(file_path):
         raise ValueError("Unsupported file format")
 
 # Routes
-@broastAI.route("/uploadresume", methods=["POST"])
+@openAI.route("/uploadresume", methods=["POST"])
 def upload_resume():
   try:
     uploaded_file = request.files.get("resume")
