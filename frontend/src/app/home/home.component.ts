@@ -10,4 +10,11 @@ import { PromptAreaComponent } from "../prompt-area/prompt-area.component";
 })
 export class HomeComponent {
 
+  formSubmitted: boolean = false;
+
+
+  onFormSubmit(status: boolean) {
+    this.formSubmitted = status;
+  }
+
 }

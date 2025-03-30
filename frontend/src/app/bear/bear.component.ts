@@ -1,4 +1,4 @@
-import { Component, HostListener, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, HostListener,  ElementRef, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -18,6 +18,7 @@ export class BearComponent {
 
   // Anger emotion variables
   angerImageVisible: boolean = false;
+  @Input() formSubmitted!: boolean;
 
   ngOnInit() {
     const anchorElement = document.getElementById("bear-anchor");
@@ -81,7 +82,7 @@ export class BearComponent {
   hideAngerImage() {
     setTimeout(() => {
       this.angerImageVisible = false;
-    }, 2000); // Play for 2 sec
+    }, 2000); 
   }
 
 

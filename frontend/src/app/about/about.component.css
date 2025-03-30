@@ -1,5 +1,4 @@
-.about
-{
+.about {
     display: flex;
     justify-content: space-evenly;
     width: 80%;
@@ -7,7 +6,34 @@
 
 }
 
-.card
-{
+.card {
     width: 300px;
+    margin: 10px; 
+}
+
+img {
+    border-radius: 50%;
+    width: 60%;
+    height: auto;
+
+}
+
+
+
+mat-card-content {
+    text-align: center;
+    margin: 16px auto;
+    
+}
+
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column; 
+        align-items: center;   
+    }
+
+    .card {
+        width: 80%; 
+        margin: 10px 0; 
+    }
 }
