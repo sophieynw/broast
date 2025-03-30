@@ -1,0 +1,81 @@
+<mat-card appearance="outlined" class="card">
+    <mat-card-header>
+        <mat-card-title> Roast Me </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+        <form (ngSubmit)="onSubmit()">
+            <!-- Dream Job Input Field -->
+            <div class="form-group">
+              <label for="dreamJob">Your Dream Job</label>
+              <input
+                type="text"
+                id="dreamJob"
+                [(ngModel)]="jobName"
+                name="dreamJob"
+                required
+                placeholder="Enter your dream job"
+              />
+            </div>
+        
+            <!-- Dropdown for file or link selection -->
+            <div class="form-group">
+              <label for="documentType">Choose Document or Link</label>
+              <select
+                id="documentType"
+                [(ngModel)]="selectedOption"
+                name="selectedOption"
+                (change)="onOptionChange(selectedOption)"
+                required
+              >
+                <option value="" disabled selected>Select an option</option>
+                <option value="resume">Resume</option>
+                <option value="coverLetter">Cover Letter</option>
+                <option value="github">GitHub</option>
+                <option value="linkedin">LinkedIn</option>
+              </select>
+            </div>
+        
+            <!-- File Upload or Link Input based on the dropdown -->
+            <div *ngIf="selectedOption === 'resume' || selectedOption === 'coverLetter'">
+              <div class="form-group">
+                <label for="fileUpload">Upload File</label>
+                <input
+                  type="file"
+                  id="fileUpload"
+                  (change)="onFileSelect($event)"
+                  accept=".pdf,.docx"
+                />
+              </div>
+            </div>
+        
+            <div *ngIf="selectedOption === 'github' || selectedOption === 'linkedin'">
+              <div class="form-group">
+                <label for="linkInput">Enter Link</label>
+                <input
+                  type="url"
+                  id="linkInput"
+                  [(ngModel)]="link"
+                  name="link"
+                  placeholder="Enter your link"
+                />
+              </div>
+            </div>
+        
+            <!-- Submit Button -->
+            <button  type="submit" [disabled]="!jobName || !selectedOption">
+              Roast
+            </button>
+          </form>
+      
+    </mat-card-content>
+    <div *ngIf="formSubmitted && apiResponseText">
+        <div>{{ apiResponseText }}</div>
+      </div>
+</mat-card>
+
+
+
+
+
+  
