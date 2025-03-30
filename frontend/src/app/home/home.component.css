@@ -1,0 +1,19 @@
+.prompt-container {
+    margin-top: 0px;
+    display: grid;
+
+    position: relative;
+}
+
+.prompt-container :last-child {
+    place-items: center;
+}
+
+#paws-image {
+
+    z-index: 2;
+    position: absolute;
+    justify-self: center;
+    top: -35px;
+}
+
