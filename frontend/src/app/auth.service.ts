@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap, catchError, of } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface User {
   id: number;
@@ -31,9 +32,18 @@ export class AuthService {
   public currentUser$ = this.currentUserSubject.asObservable();
   public isAuthenticated$ = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {
     // Check authentication status on service initialization
     this.checkAuthStatus();
+  }
+
+  // Toast message
+  showMessage(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+    });
   }
 
   // Register a new user
@@ -50,12 +60,26 @@ export class AuthService {
       })
       .pipe(
         tap((response) => {
-          if (response.id && response.email) {
-            console.log('Signup successful');
+          if (response.id && response.name && response.email) {
+            const user: User = {
+              id: response.id,
+              name: response.name,
+              email: response.email,
+            };
+            this.currentUserSubject.next(user);
+            this.isAuthenticated$.next(true);
+            this.showMessage(
+              `Welcome ${response.name}! You've signed up successfully`
+            );
+          } else if (response.error) {
+            this.showMessage(`Signup failed: ${response.error}`);
           }
         }),
         catchError((error) => {
           console.error('Signup error:', error);
+          this.showMessage(
+            `Signup failed: ${error.error?.error || 'Unknown error'}`
+          );
           return of({
             message: 'Signup failed',
             error: error.error?.error || 'Unknown error',
@@ -85,10 +109,16 @@ export class AuthService {
             };
             this.currentUserSubject.next(user);
             this.isAuthenticated$.next(true);
+            this.showMessage(`Welcome back, ${response.name}!`);
+          } else if (response.error) {
+            this.showMessage(`Login failed: ${response.error}`);
           }
         }),
         catchError((error) => {
           console.error('Login error:', error);
+          this.showMessage(
+            `Login failed: ${error.error?.error || 'Invalid credentials'}`
+          );
           return of({
             message: 'Login failed',
             error: error.error?.error || 'Unknown error',
@@ -105,12 +135,14 @@ export class AuthService {
         tap(() => {
           this.currentUserSubject.next(null);
           this.isAuthenticated$.next(false);
+          this.showMessage('You have been logged out successfully');
         }),
         catchError((error) => {
           console.error('Logout error:', error);
           // Even if server logout fails, clear client state
           this.currentUserSubject.next(null);
           this.isAuthenticated$.next(false);
+          this.showMessage('Logout process completed');
           return of({ message: 'Logout failed on server but cleared locally' });
         })
       );
