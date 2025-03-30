@@ -57,3 +57,23 @@
     border-radius: 4px;
   } */
   
+  .card {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+
+    /* text-align: center; */
+}
+
+mat-card-header
+{
+    padding: 2rem;
+}
+#btn-roast{
+    padding: 20px;
+    margin: 6px auto 24px auto;
+    width: 80%;
+    border: red 2px solid;
+    border-radius: 16px;
+}
