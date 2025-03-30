@@ -55,7 +55,7 @@ def get_perplexity_job_recommendations(dream_job, document_type, document_text):
 
         user_message = f"""
         My dream job is {dream_job} and my {document_type} data is below. 
-        Find live job postings from LinkedIn or Indeed and include links. 
+        Find live job postings from Indeed and include links. 
 
         - Include job title, a brief description, and a **direct link** to apply.
         - Format it in **markdown** with emojis.
