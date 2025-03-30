@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
 import {MatCardModule} from '@angular/material/card';
@@ -6,7 +6,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-// import {HttpClient} from '@angular/common/http';
+import { RoastApiService } from '../roast-api.service';
 
 @Component({
   selector: 'app-prompt-area',
@@ -14,8 +14,11 @@ import {MatButtonModule} from '@angular/material/button';
   templateUrl: './prompt-area.component.html',
   styleUrl: './prompt-area.component.css'
 })
-export class PromptAreaComponent {
+export class PromptAreaComponent  implements OnInit{
+  
 
+  constructor(private roastApiService: RoastApiService) { }
+  // Better handle in application component
   // constructor( private http: HttpClient) { } 
 
   jobName!: string; //Selected Job Name
@@ -58,7 +61,7 @@ export class PromptAreaComponent {
       };
 
       // Change to actual api
-      const apiUrl = 'https://';
+      const apiUrl = 'http://127.0.0.1:5000/uploadresume';
 
 
       // API call
@@ -69,5 +72,10 @@ export class PromptAreaComponent {
       //   }
       // );
     } 
+  }
+
+
+  ngOnInit() {
+
   }
 }

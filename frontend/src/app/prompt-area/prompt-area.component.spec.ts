@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PromptAreaComponent } from './prompt-area.component';
-import {MatCardModule} from '@angular/material/card';
+
 
 describe('PromptAreaComponent', () => {
   let component: PromptAreaComponent;
