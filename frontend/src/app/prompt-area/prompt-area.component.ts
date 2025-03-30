@@ -63,6 +63,7 @@ export class PromptAreaComponent implements OnInit {
   onSubmit() {
     if (this.jobName && this.selectedOption) {
       this.formSubmitted = true;
+      this.formSubmitEvent.emit(this.formSubmitted);
 
       const formData = new FormData();
       formData.append('dreamJob', this.jobName);
