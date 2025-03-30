@@ -8,6 +8,7 @@ h2 {
     margin-bottom: 20px;
     font-weight: 700;
     letter-spacing: 3px;
+    color: #382b20;
     
 }
 
@@ -20,6 +21,7 @@ mat-card-subtitle
 
 p, label, button, input, select {
     font-size: clamp(14px, 2vw, 24px);
+    color: #382b20;
 }
 
 .form-group {

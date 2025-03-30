@@ -6,9 +6,13 @@ import { ToolbarComponent } from "./toolbar/toolbar.component";
 import { SidenavComponent } from "./sidenav/sidenav.component";
 import { FooterComponent } from "./footer/footer.component";
 
+import {MatSidenavModule} from '@angular/material/sidenav';
+
+
+
 @Component({
   selector: 'app-root',
-  imports: [ToolbarComponent, SidenavComponent, FooterComponent],
+  imports: [ToolbarComponent, SidenavComponent, FooterComponent, MatSidenavModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

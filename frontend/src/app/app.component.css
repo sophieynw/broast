@@ -1,0 +1,13 @@
+.app-grid
+{
+    display: flex;  
+  flex-direction: column; 
+  height: 100%; 
+}
+
+app-sidenav {
+    flex-grow: 1; 
+}
+
+
+

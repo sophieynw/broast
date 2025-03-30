@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar class="toolbar-container">
     <button mat-icon-button (click)="onMenuClick()">
         <mat-icon>menu</mat-icon>
     </button>
@@ -7,7 +7,7 @@
     <!-- <button *ngIf="!isAuthenticated" mat-button (click)="login()">Log In</button>
     <button *ngIf="isAuthenticated" mat-button (click)="logout()">Log Out</button> -->
 
-    <button mat-button >
+    <button mat-button extended>
         <mat-icon>login</mat-icon>
         Log In
     </button>
