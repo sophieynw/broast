@@ -5,7 +5,12 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
-  }
+  } */
+
+mat-card-content
+{
+    width:80%;
+}
   
   h2 {
     text-align: center;
@@ -35,7 +40,7 @@
   button {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #d8a965;
     color: white;
     border: none;
     border-radius: 4px;
@@ -48,14 +53,9 @@
   }
   
   button:hover:not(:disabled) {
-    background-color: #45a049;
+    background-color: #b6844e;
   }
   
-  pre {
-    background-color: #f4f4f4;
-    padding: 10px;
-    border-radius: 4px;
-  } */
   
   .card {
     width: 80%;
@@ -63,17 +63,9 @@
     display: flex;
     align-items: center;
 
-    /* text-align: center; */
 }
 
 mat-card-header
 {
     padding: 2rem;
-}
-#btn-roast{
-    padding: 20px;
-    margin: 6px auto 24px auto;
-    width: 80%;
-    border: red 2px solid;
-    border-radius: 16px;
 }
