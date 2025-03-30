@@ -1,8 +1,9 @@
 import { Component, HostListener, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-bear',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './bear.component.html',
   styleUrl: './bear.component.css'
 })
@@ -14,6 +15,9 @@ export class BearComponent {
   mouseY!: number;
   anchorX!: number;
   anchorY!: number;
+
+  // Anger emotion variables
+  angerImageVisible: boolean = false;
 
   ngOnInit() {
     const anchorElement = document.getElementById("bear-anchor");
@@ -65,6 +69,20 @@ export class BearComponent {
     });
   }
 
+
+  // Add click listener to display the angry image
+  @HostListener('click', ['$event'])
+  onBearClick(event: MouseEvent) {
+
+    this.angerImageVisible = true;
+  }
+
+  // hide the angry image after 2 seconds 
+  hideAngerImage() {
+    setTimeout(() => {
+      this.angerImageVisible = false;
+    }, 2000); // Play for 2 sec
+  }
 
 
 }
