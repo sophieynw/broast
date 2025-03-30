@@ -1,44 +1,50 @@
-/* .card {
-    width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  } */
 
-mat-card-content
-{
-    width:80%;
+mat-card-content {
+    width: 80%;
 }
-  
-  h2 {
+
+h2 {
     text-align: center;
     margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #382b20;
     
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
+}
+
+mat-card-subtitle
+{
+    padding: 24px;
+    margin-bottom: 5vh;
+    text-align: center;
+}
+
+p, label, button, input, select {
+    font-size: clamp(14px, 2vw, 24px);
+    color: #382b20;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+label {
     display: block;
     margin-bottom: 5px;
-  }
-  
-  input[type="text"],
-  input[type="file"],
-  input[type="url"],
-  select {
+}
+
+input[type="text"],
+input[type="file"],
+input[type="url"],
+select {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-  
-  button {
+}
+
+button {
     width: 100%;
     padding: 10px;
     background-color: #d8a965;
@@ -46,27 +52,24 @@ mat-card-content
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button:disabled {
+}
+
+button:disabled {
     background-color: #ccc;
-  }
-  
-  button:hover:not(:disabled) {
+}
+
+button:hover:not(:disabled) {
     background-color: #b6844e;
-  }
-  
-  
-  .card {
+}
+
+
+.card {
     width: 80%;
     margin: auto;
     display: flex;
     align-items: center;
-
+    border: #382b20 solid 5px;
+    padding: 16px;
+    margin-bottom: 28px;
 }
 
-mat-card-header
-{
-    padding: 2rem;
-}

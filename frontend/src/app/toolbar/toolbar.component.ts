@@ -16,4 +16,10 @@ export class ToolbarComponent {
   onMenuClick() {
     this.sidenavService.toggleSidenav(); // Trigger sidenav toggle
   }
+
+  //TODO: login pop up
+  // onLoginClick(){
+
+  //   this.loginService.toggleLogin();
+  // }
 }

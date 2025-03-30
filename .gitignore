@@ -71,4 +71,5 @@ htmlcov/
 *.egg
 
 # Ignore Angular cache
-frontend/.angular/frontend/.angular/
+frontend/.angular/
+

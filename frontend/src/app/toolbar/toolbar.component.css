@@ -1,3 +1,29 @@
 .spacer {
-    flex: 1 1 auto;
-  }
+  flex: 1 1 auto;
+}
+
+
+
+.logo-name
+{
+  margin-left: 48px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: #382b20;
+}
+
+.toolbar-container
+{
+  height: 76px;
+  border-bottom: #382b20 2px solid;
+}
+
+.btn-auth
+{
+  padding: 50px;
+}
+
+
+
+
+

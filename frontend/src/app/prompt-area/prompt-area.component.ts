@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -33,8 +33,11 @@ export class PromptAreaComponent implements OnInit {
   selectedOption!: string; // Selected option from dropdown
   file!: File | null; // File to upload (Resume, CoverLetter)
   link!: string; // URL input field for the link (GitHub, LinkedIn)
-  formSubmitted: boolean = false; // to track if the form is submitted
+  formSubmitted: boolean = false; // Track form submission
   apiResponseText!: string; // to store the API response text
+
+  // Output to send form submission status to home component
+  @Output() formSubmitEvent = new EventEmitter<boolean>();
 
   // Handle the dropdown change event
   onOptionChange(value: string) {

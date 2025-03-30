@@ -1,20 +1,20 @@
-<mat-toolbar>
+<mat-toolbar class="toolbar-container">
     <button mat-icon-button (click)="onMenuClick()">
         <mat-icon>menu</mat-icon>
     </button>
-    <span>Broast</span>
+    <span class="logo-name">Broast</span>
     <span class="spacer"></span>
     <!-- <button *ngIf="!isAuthenticated" mat-button (click)="login()">Log In</button>
     <button *ngIf="isAuthenticated" mat-button (click)="logout()">Log Out</button> -->
 
-    <button mat-button >
+    <button mat-button extended>
         <mat-icon>login</mat-icon>
         Log In
     </button>
 
-    <button mat-button >
+    <!-- <button mat-button >
         <mat-icon>logout</mat-icon>
         Log Out
-    </button>
+    </button> -->
     <!-- if user in display  --> 
 </mat-toolbar>

@@ -1,12 +1,12 @@
 <div class="home-container">
-    <app-bear class="bear-container" >
+    <app-bear [formSubmitted]="formSubmitted">
 
     </app-bear>
     <div class="prompt-container">
         <img id="paws-image" src="images/bear_paws.png">
-        <app-prompt-area>
+        <app-prompt-area (formSubmitEvent)="onFormSubmit($event)" >
     
-        </app-prompt-area>
+        </app-prompt-area >
     
     </div>
 </div>
