@@ -52,6 +52,8 @@ def create_app():
     # Create the Flask app
     app = Flask(__name__, instance_path=INSTANCE_DIR, instance_relative_config=True)
 
+    CORS(app, supports_credentials=True)
+
     # Configurations
     app.config["SECRET_KEY"] = get_or_generate_secret_key()
     app.config["SQLALCHEMY_DATABASE_URI"] = (
@@ -75,12 +77,6 @@ def create_app():
     # Ensure instance and session directories exist
     os.makedirs(INSTANCE_DIR, exist_ok=True)
     os.makedirs(SESSION_DIR, exist_ok=True)
-
-    # Initialize extensions
-    db.init_app(app)
-    login_manager.init_app(app)
-    Session(app)
-    CORS(app)
 
     # Register blueprints
     from .views import views
