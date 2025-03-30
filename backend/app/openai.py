@@ -14,7 +14,7 @@ CACHE_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "frontend", "src"
 KEY_PATH = os.path.join(BASE_DIR, ".env")
 
 load_dotenv(dotenv_path=KEY_PATH)
-openai.api_key = os.getenv("GPT_API_KEY")  # Ensure this environment variable exists
+openai.api_key = os.getenv("GPT_API_KEY")
 PERPLEXITY_API_KEY = os.getenv("PERPLEXITY_API_KEY")
 
 openAI = Blueprint("openAI", __name__)
@@ -197,5 +197,5 @@ def test_perplexity():
         }), 200
 
     except Exception as e:
-        print(f"Perplexity API error: {str(e)}")  # already there — check terminal logs!
+        print(f"Perplexity API error: {str(e)}") 
         return f"**Job Recommendations Unavailable** 😔\n\nSorry, we couldn't get job recommendations right now. Try again later!"

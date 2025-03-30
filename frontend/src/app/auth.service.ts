@@ -26,7 +26,7 @@ interface AuthStatus {
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5000'; // Adjust to your Flask backend URL
+  private apiUrl = 'http://localhost:5000'; // Flask backend URL
   private currentUserSubject = new BehaviorSubject<User | null>(null);
 
   public currentUser$ = this.currentUserSubject.asObservable();

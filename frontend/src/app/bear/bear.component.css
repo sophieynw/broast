@@ -1,7 +1,6 @@
 .bear-container {
     display: grid;
     place-items: center;
-    /* min-height: 50vh; */
     position: relative;
     padding-bottom: 0px;
 }
@@ -22,10 +21,6 @@
 
 .mouth-image {
     position: absolute;
-    /* bottom: 20px;  */
-    /* left: 50%; */
-    transform: translateX(-50%) translateY(165px);  /* Center the image horizontally */
+    transform: translateX(-50%) translateY(165px);
     z-index: 9;
-    /* width: 100px;  */
-    /* height: auto; */
-  }
+}
