@@ -69,3 +69,6 @@ htmlcov/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Ignore Angular cache
+frontend/.angular/
