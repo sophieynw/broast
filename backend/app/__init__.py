@@ -18,11 +18,9 @@ login_manager = LoginManager()
 bcrypt = Bcrypt()
 
 # Define paths
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))  # Base directory of the app
-INSTANCE_DIR = os.path.join(BASE_DIR, "instance")  # Path for the instance folder
-SESSION_DIR = os.path.join(
-    BASE_DIR, "flask_session"
-)  # Path for the flask_session folder
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+INSTANCE_DIR = os.path.join(BASE_DIR, "instance") 
+SESSION_DIR = os.path.join(BASE_DIR, "flask_session")
 DB_NAME = "database.db"
 
 

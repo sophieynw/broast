@@ -4,7 +4,7 @@ from flask import Blueprint, jsonify
 from flask_login import login_required
 
 views = Blueprint("views", __name__)
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Base directory of this file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CACHE_DIR = os.path.join(BASE_DIR, "../../frontend/src/assets/cache")
 
 @views.route("/")

@@ -1,13 +1,9 @@
-.app-grid
-{
-    display: flex;  
-  flex-direction: column; 
-  height: 100%; 
+.app-grid {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 app-sidenav {
-    flex-grow: 1; 
+  flex-grow: 1;
 }
-
-
-

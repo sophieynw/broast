@@ -1,21 +1,44 @@
 <div class="bear-container">
-    <img id="bear-anchor" [src]="'images/full_base_body.png'">
-    <div id="pupils">
-        <img class="pupil" [src]="'images/pupil.png'" style="top:45px; right:88px;">
-        <img class="pupil" [src]="'images/pupil.png'" style="top:45px; left:88px;">
-    </div>
+  <img id="bear-anchor" [src]="'images/full_base_body.png'" />
+  <div id="pupils">
+    <img
+      class="pupil"
+      [src]="'images/pupil.png'"
+      style="top: 45px; right: 88px"
+    />
+    <img
+      class="pupil"
+      [src]="'images/pupil.png'"
+      style="top: 45px; left: 88px"
+    />
+  </div>
 
-    <!-- Default Mouth (Visible initially) -->
-    <img *ngIf="!angerImageVisible && !formSubmitted" [src]="'images/mouth_bored.png'" class="mouth-image">
+  <!-- Default Mouth (Visible initially) -->
+  <img
+    *ngIf="!angerImageVisible && !formSubmitted"
+    [src]="'images/mouth_bored.png'"
+    class="mouth-image"
+  />
 
-    <!-- Angry Mouth (Visible when angry emotion is triggered) -->
-    <img *ngIf="angerImageVisible && !formSubmitted" [src]="'images/mouth_angry.png'" class="mouth-image">
+  <!-- Angry Mouth (Visible when angry emotion is triggered) -->
+  <img
+    *ngIf="angerImageVisible && !formSubmitted"
+    [src]="'images/mouth_angry.png'"
+    class="mouth-image"
+  />
 
-    <!-- Mouth after form submission -->
-    <img *ngIf="formSubmitted" [src]="'images/mouth_happy.png'" class="mouth-image">
+  <!-- Mouth after form submission -->
+  <img
+    *ngIf="formSubmitted"
+    [src]="'images/mouth_happy.png'"
+    class="mouth-image"
+  />
 
-    <!-- Anger Emotion Image -->
-    <img *ngIf="angerImageVisible" [src]="'images/angry.png'" class="anger-image" (load)="hideAngerImage()">
+  <!-- Anger Emotion Image -->
+  <img
+    *ngIf="angerImageVisible"
+    [src]="'images/angry.png'"
+    class="anger-image"
+    (load)="hideAngerImage()"
+  />
 </div>
-<!-- 
- -->

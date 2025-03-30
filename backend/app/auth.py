@@ -66,7 +66,7 @@ def login():
         return jsonify({"error": "Invalid email or password"}), 401
 
     # Log the user in
-    login_user(user)  # Flask-Login handles session management
+    login_user(user)
     return (
         jsonify(
             {
@@ -86,7 +86,7 @@ def logout():
     """
     Logs out the currently authenticated user.
     """
-    logout_user()  # Flask-Login clears the session
+    logout_user()
     return jsonify({"message": "Logged out successfully"}), 200
 
 

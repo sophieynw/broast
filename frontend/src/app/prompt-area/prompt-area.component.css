@@ -1,4 +1,3 @@
-
 mat-card-content {
     width: 80%;
 }
@@ -9,17 +8,20 @@ h2 {
     font-weight: 700;
     letter-spacing: 3px;
     color: #382b20;
-    
+
 }
 
-mat-card-subtitle
-{
+mat-card-subtitle {
     padding: 24px;
     margin-bottom: 5vh;
     text-align: center;
 }
 
-p, label, button, input, select {
+p,
+label,
+button,
+input,
+select {
     font-size: clamp(14px, 2vw, 24px);
     color: #382b20;
 }
@@ -72,4 +74,3 @@ button:hover:not(:disabled) {
     padding: 16px;
     margin-bottom: 28px;
 }
-
