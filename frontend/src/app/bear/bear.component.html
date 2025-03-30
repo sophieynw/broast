@@ -1,7 +1,16 @@
 <div class="bear-container">
-    <img id="bear-anchor" src="images/bear_asset.png">
+    <img id="bear-anchor" src="images/full_base_body.png">
     <div id="pupils">
-        <img class="pupil" src="images/pupil.png" style="top:59px; right:88px;">
-        <img class="pupil" src="images/pupil.png" style="top:59px; left:88px;">
+        <img class="pupil" src="images/pupil.png" style="top:45px; right:88px;">
+        <img class="pupil" src="images/pupil.png" style="top:45px; left:88px;">
     </div>
+
+    <img *ngIf="angerImageVisible" 
+    [src]="'images/angry.png'" 
+
+    class="anger-image" 
+    (load)="hideAngerImage()"
+    >
 </div>
+<!-- 
+ -->
