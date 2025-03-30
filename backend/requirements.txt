@@ -7,3 +7,5 @@ flask-cors
 flask-bcrypt          # for user authentication
 flask-session         # for server-side sessions/cookies
 openai
+PyPDF2                # for converting pdf to text
+DocX                  # for converting docx to text

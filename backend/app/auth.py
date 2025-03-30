@@ -36,6 +36,7 @@ def sign_up():
                 "message": f"User {name} registered successfully",
                 "id": new_user.id,
                 "email": new_user.email,
+                "name": new_user.name
             }
         ),
         201,
@@ -68,7 +69,12 @@ def login():
     login_user(user)  # Flask-Login handles session management
     return (
         jsonify(
-            {"message": f"Welcome {user.name}!", "id": user.id, "email": user.email}
+            {
+                "message": f"Welcome {user.name}!", 
+                "id": user.id, 
+                "email": user.email,
+                "name": user.name
+            }
         ),
         200,
     )
@@ -96,8 +102,8 @@ def is_authenticated():
                     "isAuthenticated": True,
                     "user": {
                         "id": current_user.id,
-                        "name": current_user.name,
                         "email": current_user.email,
+                        "name": current_user.name
                     },
                 }
             ),
