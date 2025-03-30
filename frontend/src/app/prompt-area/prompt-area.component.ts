@@ -1,25 +1,33 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; 
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { RoastApiService } from '../roast-api.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-prompt-area',
-  imports: [CommonModule, FormsModule, MatCardModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatButtonModule,
+  ],
   templateUrl: './prompt-area.component.html',
-  styleUrl: './prompt-area.component.css'
+  styleUrl: './prompt-area.component.css',
 })
-export class PromptAreaComponent  implements OnInit{
-  
-
-  constructor(private roastApiService: RoastApiService) { }
-  // Better handle in application component
-  // constructor( private http: HttpClient) { } 
+export class PromptAreaComponent implements OnInit {
+  constructor(
+    private roastApiService: RoastApiService,
+    private http: HttpClient
+  ) {}
 
   jobName!: string; //Selected Job Name
   selectedOption!: string; // Selected option from dropdown
@@ -28,16 +36,14 @@ export class PromptAreaComponent  implements OnInit{
   formSubmitted: boolean = false; // Track form submission
   apiResponseText!: string; // to store the API response text
 
-
   // Output to send form submission status to home component
   @Output() formSubmitEvent = new EventEmitter<boolean>();
-
 
   // Handle the dropdown change event
   onOptionChange(value: string) {
     this.selectedOption = value;
-    this.file = null; 
-    this.link = ''; 
+    this.file = null;
+    this.link = '';
   }
 
   // Handle file upload
@@ -57,33 +63,41 @@ export class PromptAreaComponent  implements OnInit{
   onSubmit() {
     if (this.jobName && this.selectedOption) {
       this.formSubmitted = true;
-      this.formSubmitEvent.emit(this.formSubmitted);
 
+      const formData = new FormData();
+      formData.append('dreamJob', this.jobName);
+      formData.append('selectedOption', this.selectedOption);
 
-      // Data to sent to the API
-      const formData = {
-        dreamJob: this.jobName,
-        selectedOption: this.selectedOption,
-        file: this.file,
-        link: this.link
-      };
+      if (
+        this.file &&
+        (this.selectedOption === 'resume' ||
+          this.selectedOption === 'coverLetter')
+      ) {
+        formData.append('file', this.file);
+      }
 
-      // Change to actual api
-      const apiUrl = 'http://127.0.0.1:5000/uploadresume';
+      if (
+        this.link &&
+        (this.selectedOption === 'github' || this.selectedOption === 'linkedin')
+      ) {
+        formData.append('link', this.link);
+      }
 
+      const apiUrl = 'http://127.0.0.1:5000/upload';
 
-      // API call
-      // this.http.post(apiUrl, formData).subscribe(
-      //   (response: any) => {
-
-      //     this.apiResponseText = response.text; 
-      //   }
-      // );
-    } 
+      this.http.post(apiUrl, formData).subscribe({
+        next: (response: any) => {
+          this.apiResponseText =
+            response.response || response.text || 'No response text';
+        },
+        error: (error) => {
+          console.error('API error:', error);
+          this.apiResponseText =
+            'Error: Unable to get a response from the server.';
+        },
+      });
+    }
   }
 
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 }
