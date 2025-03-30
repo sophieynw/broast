@@ -6,7 +6,7 @@ import { BearComponent } from './bear/bear.component';
   selector: 'app-root',
   imports: [RouterOutlet, BearComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'frontend';
