@@ -1,12 +1,21 @@
-.bear-container
-{
+.bear-container {
     display: grid;
     place-items: center;
-    min-height: 50vh;
+    /* min-height: 50vh; */
     position: relative;
+    padding-bottom: 0px;
 }
 
-#pupils, #pupils img {
+#pupils,
+#pupils img {
     position: absolute;
 }
 
+.anger-image {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    z-index: 10;
+    transition: opacity 0.5s ease-in-out;
+    transform: translateX(-40px) translateY(-20px);
+}
