@@ -52,6 +52,8 @@ def create_app():
     # Create the Flask app
     app = Flask(__name__, instance_path=INSTANCE_DIR, instance_relative_config=True)
 
+    CORS(app, supports_credentials=True)
+
     # Configurations
     app.config["SECRET_KEY"] = get_or_generate_secret_key()
     app.config["SQLALCHEMY_DATABASE_URI"] = (
@@ -76,20 +78,14 @@ def create_app():
     os.makedirs(INSTANCE_DIR, exist_ok=True)
     os.makedirs(SESSION_DIR, exist_ok=True)
 
-    # Initialize extensions
-    db.init_app(app)
-    login_manager.init_app(app)
-    Session(app)
-    CORS(app)
-
     # Register blueprints
     from .views import views
     from .auth import auth
-    from .openai import broastAI
+    from .openai import openAI
 
     app.register_blueprint(views, url_prefix="/")  # Main routes
     app.register_blueprint(auth, url_prefix="/")  # Authentication routes
-    app.register_blueprint(broastAI, url_prefix="/") # BroastOpenAI routes
+    app.register_blueprint(openAI, url_prefix="/") # BroastOpenAI routes
 
     # Flask-Login user loader
     from .models import User

@@ -14,7 +14,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
   selector: 'app-root',
   imports: [ToolbarComponent, SidenavComponent, FooterComponent, MatSidenavModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'frontend';
