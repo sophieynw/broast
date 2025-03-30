@@ -3,20 +3,6 @@
         <mat-card-title> Roast Me </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <!-- <mat-form-field appearance="outline">
-            <mat-label>Job Name</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Select</mat-label>
-            <mat-select>
-              <mat-option value="resume">Resume</mat-option>
-              <mat-option value="cover_letter">Cover Letter</mat-option>
-              <mat-option value="linkedin">LinkedIn</mat-option>
-              <mat-option value="github">Git Hub</mat-option>
-            </mat-select>
-        </mat-form-field> -->
-
 
         <form (ngSubmit)="onSubmit()">
             <!-- Dream Job Input Field -->
@@ -58,7 +44,7 @@
                   type="file"
                   id="fileUpload"
                   (change)="onFileSelect($event)"
-                  accept=".pdf,.docx,.txt"
+                  accept=".pdf,.docx"
                 />
               </div>
             </div>
@@ -77,7 +63,7 @@
             </div>
         
             <!-- Submit Button -->
-            <button id="btn-roast" type="submit" [disabled]="!jobName || !selectedOption">
+            <button  type="submit" [disabled]="!jobName || !selectedOption">
               Roast
             </button>
           </form>
@@ -88,20 +74,6 @@
       </div>
 </mat-card>
 
-<!-- <div class="card">
-    <div>
-        <p>Header</p>
-    </div>
-    <div class="card-content">
-        <label></label>
-        <input >
-        <input >
-
-    </div>
-    <div class="action">
-
-    </div>
-</div> -->
 
 
 
